@@ -71,8 +71,6 @@ describe('UsersComponent', () => {
 
     it('should undo deletion if the call to the server fails', () => {
       spyOn(window, 'confirm').and.returnValue(true);
-      // We need to change the implementation of alert, otherwise
-      // it will popup a dialog when running our unit tests.
       spyOn(window, 'alert').and.callFake(() => {});
       spyOn(service, 'deleteUser').and.returnValue(throwError('error'));
 
